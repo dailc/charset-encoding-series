@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../css/common/reset.css" />
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<link rel="stylesheet" href="../css/common/common.css" />
+
+	</head>
+
+	<body>
+		
+		<div class="mui-content" >
+			<h5>加密/解密测试:</h5>
+			<input type="text" id="enDecodeStr" value="你好世界!" />
+			<button class="mui-btn mui-btn-block " id="encodeb64GBK">base64GBK加密</button>
+			<button class="mui-btn mui-btn-block " id="decodeb64GBK">base64GBK解密</button>
+			
+			<button class="mui-btn mui-btn-block " id="encodeb64UTF">base64UTF加密</button>
+			<button class="mui-btn mui-btn-block " id="decodeb64UTF">base64UTF解密</button>
+			
+			<button class="mui-btn mui-btn-block " id="encodeb64UTFAndUri">base64UTFAndUri加密</button>
+			<button class="mui-btn mui-btn-block " id="decodeb64UTFAndUri">base64UTFAndUri解密</button>
+			<h5>测试字符串</h5>
+			<input type="text" id="testStr" value="Hello World! 你好,世界！ ~。！*)(;壹佰贰拾贰`丶‘.@/】o" />
+
+			<button class="mui-btn mui-btn-block " id="testFunctionAndPrint">测试功能并打印</button>
+			<div id="outPut">
+				<h5>输出</h5>
+				<span id="testPrint"></span>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="../lib/util.charset.js" ></script>
+		<script type="text/javascript" src="../js/demo_charset_charsetTools.js" ></script>
+		<script>
+			
+		</script>
+	</body>
+
+</html>

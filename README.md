@@ -5,4 +5,6 @@ TODO: 待补...
 
 ### 相关博文
 
-[https://dailc.github.io/](https://dailc.github.io/)
+* [字符编码系列(UTF8，GBK，UTF16以及应用)](http://www.jianshu.com/p/94c9086a0fe5)
+* []()
+
