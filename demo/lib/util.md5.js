@@ -1,19 +1,20 @@
 /**
- * @description   移动开发框架
- * @author dailc  
- * @version 4.0
- * @time 2017-01-19
- * 功能模块:
- * Md5工具类****************************************
- * 注意:不可逆
- * 1.hex_sha1 hex_sha1散列,据传是最安全的散列方法,不可逆
- * 2.b64_sha1 b64_sha1散列,也是sha1散列的一种,不可逆
- * 3.str_sha1 普通字符串散列,也是sha1散列的一种,不可逆
- * Md5工具类完毕*************************************
- * 注意:散列算法更多的用来进行数据签名，而不是加密，因为虽然不可逆，但是可以通过彩虹表轻易破取常见密码
+ * 作者: dailc
+ * 创建时间: 2017/05/23 14:06:20
+ * 版本: [1.0, 2017/05/23 ]
+ * 版权: dailc
+ * 描述: md5，sha1散列操作相关 
+ * sha1_hex hex_sha1散列
+ * sha1_b64 b64_sha1散列,也是sha1散列的一种,不可逆
+ * sha1_str 普通字符串散列,也是sha1散列的一种,不可逆
+ * 注意:散列算法更多的用来进行数据签名，而不是加密，因为虽然不可逆，但是可以通过彩虹表轻易撞库破解常见密码
  */
 (function(exports) {
 	"use strict";
+	/**
+	 * 决定hex是大写散列还是小写散列
+	 * 为true为大写
+	 */
 	var hexcase = 0;
 	var b64pad = "";
 	var chrsz = 8;
@@ -22,7 +23,7 @@
 	 * @param {String} s 加密内容
 	 * @return {String} 返回密文,hex字符串
 	 */
-	exports.hex_sha1 = function(s) {
+	exports.sha1_hex = function(s) {
 		return binb2hex(core_sha1(str2binb(s), s.length * chrsz))
 	};
 	/**
@@ -30,7 +31,7 @@
 	 * @param {String} s 加密内容
 	 * @return {String} 返回密文,base64字符串
 	 */
-	exports.b64_sha1 = function(s) {
+	exports.sha1_b64 = function(s) {
 		return binb2b64(core_sha1(str2binb(s), s.length * chrsz))
 	};
 	/**
@@ -38,7 +39,7 @@
 	 * @param {String} s 加密内容
 	 * @return {String} 返回密文,string字符串
 	 */
-	exports.str_sha1 = function(s) {
+	exports.sha1_str = function(s) {
 		return binb2str(core_sha1(str2binb(s), s.length * chrsz))
 	};
 
@@ -157,4 +158,18 @@
 		}
 		return str
 	}
+	
+	/**
+	 * 兼容require
+	 */
+	if(typeof module != 'undefined' && module.exports) {
+		module.exports = exports;
+	} else if(typeof define == 'function' && (define.amd || define.cmd)) {
+		define(function() {
+			return exports;
+		});
+	}
+	window.Util = window.Util || {};
+
+	Util.md5 = exports;
 })({});
